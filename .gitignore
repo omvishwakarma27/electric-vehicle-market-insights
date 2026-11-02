@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+instance/
+*.db
+*.sqlite
+*.sqlite3
+# Keep raw or restricted data out of public Git repositories by default
+data/
+ev_market_train.csv
+*.hyper
+*.twb
+*.twbx
+.DS_Store
