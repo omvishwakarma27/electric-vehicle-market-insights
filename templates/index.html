@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electric Vehicle Market Performance & Insights</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">DATA ANALYTICS PROJECT</div>
+    <h1>Electric Vehicle Market<br>Performance &amp; Insights</h1>
+    <p>Explore EV specifications, manufacturers, regions, pricing, range and annual sales using interactive Tableau visualizations.</p>
+    <a class="jump" href="#dashboard">Explore dashboard ↓</a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <div class="eyebrow">PROJECT OVERVIEW</div>
+        <h2>Explore the EV landscape</h2>
+        <p>This project uses a supplied electric-vehicle dataset, SQL for data queries, Tableau for interactive analysis, and Flask for the web interface. Interpret results in the context of the supplied dataset.</p>
+      </div>
+      <div class="pill-row">
+        <span>Tableau</span><span>SQL</span><span>Python</span><span>Flask</span>
+      </div>
+    </section>
+
+    <section class="view-section" id="dashboard">
+      <div class="section-heading">
+        <div><div class="eyebrow">INTERACTIVE ANALYSIS</div><h2>Market dashboard</h2></div>
+        <span class="tag">Dashboard</span>
+      </div>
+      {% if dashboard_url %}
+        <div class="viz-frame">
+          <iframe src="{{ dashboard_url }}" title="Interactive Tableau EV dashboard" loading="lazy" allowfullscreen></iframe>
+        </div>
+      {% else %}
+        <div class="setup-note">
+          <h3>Tableau dashboard embed URL needed</h3>
+          <p>Publish your dashboard to Tableau Public (only if the data is suitable for public sharing), then add its embed URL as the <code>TABLEAU_DASHBOARD_URL</code> environment variable in your hosting service.</p>
+        </div>
+      {% endif %}
+    </section>
+
+    <section class="view-section">
+      <div class="section-heading">
+        <div><div class="eyebrow">GUIDED FINDINGS</div><h2>Tableau story</h2></div>
+        <span class="tag">Story</span>
+      </div>
+      {% if story_url %}
+        <div class="viz-frame">
+          <iframe src="{{ story_url }}" title="Tableau EV market story" loading="lazy" allowfullscreen></iframe>
+        </div>
+      {% else %}
+        <div class="setup-note">
+          <h3>Story embed URL optional until published</h3>
+          <p>Once your Tableau story is published, set <code>TABLEAU_STORY_URL</code>. Until then, the dashboard section and project overview remain available.</p>
+        </div>
+      {% endif %}
+    </section>
+
+    <section class="method">
+      <div class="eyebrow">METHODOLOGY</div>
+      <h2>How the project works</h2>
+      <div class="method-grid">
+        <article><b>01 / Data</b><h3>Dataset preparation</h3><p>Inspect field types, missing values and data consistency before analysis.</p></article>
+        <article><b>02 / SQL</b><h3>Query and summarize</h3><p>Use aggregations and filters to compare manufacturers, categories and regions.</p></article>
+        <article><b>03 / Visualize</b><h3>Explore patterns</h3><p>Use Tableau charts and filters to investigate the available EV attributes.</p></article>
+      </div>
+      <p class="disclaimer">Data note: annual sales totals and other metrics reflect the supplied dataset and should not be treated as independently verified market statistics.</p>
+    </section>
+  </main>
+
+  <footer><span>Electric Vehicle Market Performance &amp; Insights</span><span>Built with Python · Flask · Tableau</span></footer>
+</body>
+</html>
